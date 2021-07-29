@@ -1,0 +1,144 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Urban AI</title>
+        <style>
+            body {
+                margin: 10;
+                font-family: monospace;  
+                font-size: 10px;
+                color: rgb(255, 255, 255);
+                background-color: rgb(255, 255, 255);
+                text-align:left;
+                }
+            
+            #console {
+            position: absolute;
+            top: 3%;
+            width: 400px;
+            margin: 10px 20PX ;
+            }
+
+
+            <meta name="viewport" content="width=device-width, initial-scale=5.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            <title>Input Range Slider</title>
+            <link rel="stylesheet" href="style.css">
+
+            * {
+              margin: 0;
+              padding: 0;
+              font-family: "Roboto", serif;
+            }
+
+            div {
+              position: absolute;
+            }
+            #rangeValue {
+              position: relative;
+              display: block;
+              text-align: left;
+              font-size: 6em;
+              color: #999;
+              font-weight: 400;
+            }
+            .range {
+              width: 500px;
+              height: 15px;
+              -webkit-appearance: none;
+              background: #111;
+              outline: none;
+              border-radius: 15px;
+              overflow: hidden;
+              box-shadow: inset 0 0 5px rgba(0, 0, 0, 1);
+            }
+            .range::-webkit-slider-thumb {
+              position:relative;
+              -webkit-appearance: none;
+              width: 15px;
+              height: 15px;
+              border-radius: 50%;
+              background: #d4d4d4;
+              cursor: pointer;
+              border: 4px solid #333;
+              box-shadow: -407px 0 0 400px #a1a1a1;
+            }
+
+            div.left {
+            text-align: left;
+            position: relative;
+            font-size: 50px;
+            color:rgba(0, 0, 0, 1);
+            font-family: monospace;
+            border: 3px solid rgb(255, 255, 255);
+            }
+            
+            div.leftsmall {
+            text-align: left;
+            position: relative;
+            color:rgba(0, 0, 0, 1);
+            font-size: 12px;
+            font-family: monospace;
+            }
+        
+                        
+
+            canvas {width: 100%; height: 100%; }
+            input[type=range] { width: 100%; }
+            #container {position: relative;}
+            #container canvas, #overlay { position: absolute;}
+            #overlay div { padding: 3px; }
+
+            
+            #loader {
+                border: 5px solid #f3f3f3; /* Light grey */
+                border-top: 5px solid #3d3d3d; /* Grey */
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+                animation: spin 1s linear infinite;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                z-index: 2;
+            }
+
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="loader"></div> 
+        
+        <div id="console">
+          <div class="left">
+            <p>  Urban (AI)D  </p>
+          </div>
+
+          <div class="leftsmall">
+          A pedshed represents the area within walking distance from a central point. It is often visualized as a circle with a radius of 0.25 miles — the equivalent of a 5-minute walk. <span class="ml1"></span>
+            <a href="https://morphocode.com/the-5-minute-walk/" target="_blank" rel="noopener" class="b--black-20 bb black-60 hover-b--black hover-black link">Learn more</a></p>
+          </div>
+
+            <span id="rangeValue">0</span>
+            <div id="range" style="font-size: 20px">
+              <label for="Radius around site to be considered" style="color:rgb(0, 0, 0)">Radius around site to be considered</label>
+              <Input class="range" type="range" id="RH_IN:____" value="0" min="0" max="1000" onChange="rangeSlide(this.value)" onmousemove="rangeSlide(this.value)">
+              </Input>
+            </div>       
+        </div>
+
+      
+        
+    <script type="text/javascript">
+      function rangeSlide(value) {
+          document.getElementById('rangeValue').innerHTML = value;
+      }
+  </script>
+        <div>
+        <script type="module" src="./script.js"></script>
+        </div>
+    </body>
+</html>
