@@ -59,7 +59,7 @@ function rndPts() {
     
   }
 
-}
+
 
 let dragging = false
 function onChange() {
