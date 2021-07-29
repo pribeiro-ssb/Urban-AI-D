@@ -17,6 +17,21 @@
             top: 3%;
             width: 400px;
             margin: 10px 20PX ;
+            border: solid;
+            }
+
+            #consoleA {
+            position: relative;
+            top:60%;
+            width: 400px;
+            margin: 10px 20PX ;
+            }
+
+            #consoleB {
+            position: relative;
+            top:60%;
+            width: 400px;
+            margin: 10px 20PX ;
             }
 
 
@@ -29,12 +44,28 @@
               margin: 0;
               padding: 0;
               font-family: "Roboto", serif;
-            }
+              }
 
             div {
               position: absolute;
             }
             #rangeValue {
+              position: relative;
+              display: block;
+              text-align: left;
+              font-size: 6em;
+              color: #999;
+              font-weight: 400;
+            }
+            #rangeValue1 {
+              position: relative;
+              display: block;
+              text-align: left;
+              font-size: 6em;
+              color: #999;
+              font-weight: 400;
+            }
+            #rangeValue2 {
               position: relative;
               display: block;
               text-align: left;
@@ -64,6 +95,8 @@
               box-shadow: -407px 0 0 400px #a1a1a1;
             }
 
+            
+
             div.left {
             text-align: left;
             position: relative;
@@ -80,7 +113,7 @@
             font-size: 12px;
             font-family: monospace;
             }
-        
+
                         
 
             canvas {width: 100%; height: 100%; }
@@ -118,17 +151,67 @@
           </div>
 
           <div class="leftsmall">
-          A pedshed represents the area within walking distance from a central point. It is often visualized as a circle with a radius of 0.25 miles — the equivalent of a 5-minute walk. <span class="ml1"></span>
+            A pedshed represents the area within walking distance from a central point. It is often visualized as a circle with a radius of 0.25 miles — the equivalent of a 5-minute walk.   <span class="ml1"></span>
             <a href="https://morphocode.com/the-5-minute-walk/" target="_blank" rel="noopener" class="b--black-20 bb black-60 hover-b--black hover-black link">Learn more</a></p>
           </div>
 
-            <span id="rangeValue">0</span>
+            <span id="rangeValue">1000</span>
             <div id="range" style="font-size: 20px">
-              <label for="Radius around site to be considered" style="color:rgb(0, 0, 0)">Radius around site to be considered</label>
-              <Input class="range" type="range" id="RH_IN:____" value="0" min="0" max="1000" onChange="rangeSlide(this.value)" onmousemove="rangeSlide(this.value)">
+              <label for="Radius" style="color:rgb(0, 0, 0)">Distance from the centre // m </label>    
+              <Input class="range" type="range" id="rangeValue" value="1000" min="0" max="1000" onChange="rangeSlide(this.value)" onmousemove="rangeSlide(this.value)">
               </Input>
-            </div>       
+            </div>
         </div>
+
+
+        <div id="consoleA">
+
+          <div class="leftsmall">
+            The Urban(AI)can predict the needs of the city over the period of 20 years from now. The data extracted is from OECD Portgual. Learn more about the dataset<span class="ml1"></span>
+            <a href="https://www.oecd.org/portugal/" target="_blank" rel="noopener" class="b--black-20 bb black-60 hover-b--black hover-black link">Learn more</a></p>
+          </div>
+
+            <span id="rangeValue1">2020</span>
+            <div id="range" style="font-size: 20px">
+              <label for="Year for prediction" style="color:rgb(0, 0, 0)">Year for prediction ------ //</label>
+              <Input class="range" type="range" id="rangeValue1" value="2020" min="2000" max="2050" onChange="rangeSlide1(this.value)" onmousemove="rangeSlide1(this.value)">
+              </Input>
+            </div>
+        </div> 
+        <p> hhhh</p>
+        <p> hhhh</p>
+
+        <div id="consoleB">
+
+          <div class="leftsmall">
+            <p>The Urban(AI)can predict the needs of the city over the period of 20 years from now. </p>
+            <p>The metrics measured here are as follows.</p>
+            <p>0. Change in green space for every 1 sq.km</p>
+            <p>1. Change in Ratio of Amenities every 1 sq.km</p>
+            <p>2. Change in Public Transport every 1 sq.km</p>
+            <p>3. Predicted Increase in Educational Facilities for every 1 sq.km</p>
+            <p>4. Predicted Increase / Decrease in Solid Waste Generation for every 1 sq.km</p>
+            <p>5. Population density per hexagon for every 1 sq.km</p>
+
+            <span class="ml1"></span>
+            <a href="https://www.oecd.org/portugal/" target="_blank" rel="noopener" class="b--black-20 bb black-60 hover-b--black hover-black link">Learn more</a></p>
+          </div>
+
+           <span id="rangeValue2">0</span>
+            <div id="range" style="font-size: 20px">
+              <label for="Metric of Prediction" style="color:rgb(0, 0, 0)">Metric of Prediction ------ // </label>
+              <Input class="range" type="range" id="rangeValue2" value="0" min="0" max="5" onChange="rangeSlide2(this.value)" onmousemove="rangeSlide2(this.value)">
+              </Input>
+            </div>
+
+            <p> hhhh</p>
+            <p> hhhh</p>
+          
+          <label for="Display Analysis within Radius only" style="color:rgb(0, 0, 0)" ><p style="font-size: 20px">Display Analysis within Radius<input type="checkbox" id="RH_IN:Plan"></p></label>
+
+
+          <label for="Display in Plan or 3d" style="color:rgb(0, 0, 0)" ><p style="font-size: 20px">Display in Plan or 3d ><input type="checkbox" id="RH_IN:Plan"> </p></label>
+        </div> 
 
       
         
@@ -136,6 +219,13 @@
       function rangeSlide(value) {
           document.getElementById('rangeValue').innerHTML = value;
       }
+      function rangeSlide1(value) {
+          document.getElementById('rangeValue1').innerHTML = value;
+      }
+      function rangeSlide2(value) {
+          document.getElementById('rangeValue2').innerHTML = value;
+      }
+
   </script>
         <div>
         <script type="module" src="./script.js"></script>
