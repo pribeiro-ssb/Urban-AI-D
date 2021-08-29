@@ -49,7 +49,54 @@
             div {
               position: absolute;
             }
+            #rangeValue {
+              position: relative;
+              display: block;
+              text-align: left;
+              font-size: 6em;
+              color: #999;
+              font-weight: 400;
+            }
+            #rangeValue1 {
+              position: relative;
+              display: block;
+              text-align: left;
+              font-size: 6em;
+              color: #999;
+              font-weight: 400;
+            }
+            #rangeValue2 {
+              position: relative;
+              display: block;
+              text-align: left;
+              font-size: 6em;
+              color: #999;
+              font-weight: 400;
+            }
+            .range {
+              width: 500px;
+              height: 15px;
+              -webkit-appearance: none;
+              background: #111;
+              outline: none;
+              border-radius: 15px;
+              overflow: hidden;
+              box-shadow: inset 0 0 5px rgba(0, 0, 0, 1);
+            }
+            .range::-webkit-slider-thumb {
+              position:relative;
+              -webkit-appearance: none;
+              width: 15px;
+              height: 15px;
+              border-radius: 50%;
+              background: #d4d4d4;
+              cursor: pointer;
+              border: 4px solid #333;
+              box-shadow: -407px 0 0 400px #a1a1a1;
+            }
+
             
+
             div.left {
             text-align: left;
             position: relative;
@@ -108,8 +155,10 @@
             <a href="https://morphocode.com/the-5-minute-walk/" target="_blank" rel="noopener" class="b--black-20 bb black-60 hover-b--black hover-black link">Learn more</a></p>
           </div>
 
+            <span id="rangeValue">1000</span>
+            <div id="range" style="font-size: 20px">
               <label for="Radius" style="color:rgb(0, 0, 0)">Distance from the centre // m </label>    
-              <Input class="range" type="range" id="RH_IN:rangeValue" value="1000" min="0" max="1000" >
+              <Input class="range" type="range" id="rangeValue" value="1000" min="0" max="1000" onChange="rangeSlide(this.value)" onmousemove="rangeSlide(this.value)">
               </Input>
             </div>
         </div>
@@ -122,8 +171,10 @@
             <a href="https://www.oecd.org/portugal/" target="_blank" rel="noopener" class="b--black-20 bb black-60 hover-b--black hover-black link">Learn more</a></p>
           </div>
 
+            <span id="rangeValue1">2020</span>
+            <div id="range" style="font-size: 20px">
               <label for="Year for prediction" style="color:rgb(0, 0, 0)">Year for prediction ------ //</label>
-              <Input class="range" type="range" id="RH_IN:rangeValue1" value="2020" min="2000" max="2050">
+              <Input class="range" type="range" id="rangeValue1" value="2020" min="2000" max="2050" onChange="rangeSlide1(this.value)" onmousemove="rangeSlide1(this.value)">
               </Input>
             </div>
         </div> 
@@ -146,8 +197,10 @@
             <a href="https://www.oecd.org/portugal/" target="_blank" rel="noopener" class="b--black-20 bb black-60 hover-b--black hover-black link">Learn more</a></p>
           </div>
 
-               <label for="Metric of Prediction" style="color:rgb(0, 0, 0)">Metric of Prediction ------ // </label>
-              <Input class="range" type="range" id="RH_IN:rangeValue2" value="0" min="0" max="5" >
+           <span id="rangeValue2">0</span>
+            <div id="range" style="font-size: 20px">
+              <label for="Metric of Prediction" style="color:rgb(0, 0, 0)">Metric of Prediction ------ // </label>
+              <Input class="range" type="range" id="rangeValue2" value="0" min="0" max="5" onChange="rangeSlide2(this.value)" onmousemove="rangeSlide2(this.value)">
               </Input>
             </div>
 
@@ -162,6 +215,17 @@
 
       
         
+    <script type="text/javascript">
+      function rangeSlide(value) {
+          document.getElementById('rangeValue').innerHTML = value;
+      }
+      function rangeSlide1(value) {
+          document.getElementById('rangeValue1').innerHTML = value;
+      }
+      function rangeSlide2(value) {
+          document.getElementById('rangeValue2').innerHTML = value;
+      }
+
   </script>
         <div>
         <script type="module" src="./script.js"></script>

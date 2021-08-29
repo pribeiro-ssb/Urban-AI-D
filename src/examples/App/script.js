@@ -12,13 +12,13 @@ loader.setLibraryPath( 'https://cdn.jsdelivr.net/npm/rhino3dm@0.15.0-beta/' )
 const definition = 'Remap+Ranking_Internalised.gh'
 
 // setup input change events
-const distance_slider = document.getElementById( 'rangeValue' )
+const distance_slider = document.getElementById( 'RH_IN:rangeValue' )
 distance_slider.addEventListener( 'mouseup', onSliderChange, false )
 distance_slider.addEventListener( 'touchend', onSliderChange, false )
-const year_slider = document.getElementById( 'rangeValue1' )
+const year_slider = document.getElementById( 'RH_IN:rangeValue1' )
 year_slider.addEventListener( 'mouseup', onSliderChange, false )
 year_slider.addEventListener( 'touchend', onSliderChange, false )
-const metric_slider = document.getElementById( 'rangeValue2' )
+const metric_slider = document.getElementById( 'RH_IN:rangeValue2' )
 metric_slider.addEventListener( 'mouseup', onSliderChange, false )
 metric_slider.addEventListener( 'touchend', onSliderChange, false )
 
@@ -96,9 +96,9 @@ async function compute () {
   const data = {
     definition: definition,
     inputs: {
-      'rangeValue': distance_slider.valueAsNumber,
-      'rangeValue1': year_slider.valueAsNumber,
-      'rangeValue2': metric_slider.valueAsNumber,
+      'RH_IN:rangeValue': distance_slider.valueAsNumber,
+      'RH_IN:rangeValue1': year_slider.valueAsNumber,
+      'RH_IN:rangeValue2': metric_slider.valueAsNumber,
       'point': point
     }
   }
